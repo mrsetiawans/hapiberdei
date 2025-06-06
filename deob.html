@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obfuscator & Deobfuscator HTML (Kuat)</title>
+    <title>Obfuscator & Deobfuscator HTML (Singularity)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         textarea { -ms-overflow-style: none; scrollbar-width: none; }
         textarea::-webkit-scrollbar { display: none; }
-        .btn-premium { background: linear-gradient(45deg, #8a2be2, #4a00e0); }
-        .btn-premium:hover { background: linear-gradient(45deg, #9932cc, #5a10e0); }
-        .focus-premium:focus { --tw-ring-color: #8a2be2; }
-        .border-premium { border-color: #8a2be2; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .btn-singularity { background: linear-gradient(45deg, #c0392b, #8e44ad); }
+        .btn-singularity:hover { background: linear-gradient(45deg, #e74c3c, #9b59b6); }
+        .focus-singularity:focus { --tw-ring-color: #c0392b; }
+        .border-singularity { border-color: #c0392b; }
     </style>
 </head>
 <body class="bg-slate-900 text-white antialiased">
@@ -25,14 +26,11 @@
         <!-- Bagian Obfuscator -->
         <section id="obfuscator">
             <header class="text-center mb-8 md:mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold text-cyan-400">Obfuscator HTML</h1>
-                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-                    Ubah kode HTML Anda menjadi JavaScript untuk menyembunyikan source code.
-                </p>
+                <h1 class="text-4xl md:text-5xl font-orbitron font-bold text-cyan-400 tracking-wider">HTML OBFUSCATOR</h1>
+                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">Sembunyikan kode sumber HTML Anda dengan metode enkripsi berlapis dan logika dinamis.</p>
             </header>
 
             <main class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
-                <!-- Kolom Input HTML -->
                 <div class="flex-1 flex flex-col gap-4">
                     <label for="inputHtml" class="text-lg font-semibold text-slate-200">1. Masukkan Kode HTML</label>
                     <div class="relative flex-1">
@@ -40,21 +38,16 @@
                     </div>
                 </div>
                 
-                <!-- Tombol Aksi Obfuscator -->
                 <div class="flex-shrink-0 flex flex-col items-center justify-center gap-4">
-                     <button id="obfuscateBtn" class="w-full md:w-48 h-12 px-6 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-                        Obfuscate (Biasa)
+                     <button id="obfuscateHeavyBtn" class="group w-full md:w-56 h-16 px-6 btn-singularity text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
+                        <span class="font-orbitron text-lg">OBFUSCATE (SINGULARITY)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>
                     </button>
-                    <button id="obfuscateHeavyBtn" class="group w-full md:w-48 h-12 px-6 btn-premium text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
-                        <span>Obfuscate (Kuat)</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" /></svg>
-                    </button>
-                     <button id="clearObfuscatorBtn" class="w-full md:w-48 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+                     <button id="clearObfuscatorBtn" class="w-full md:w-56 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
                         Bersihkan
                     </button>
                 </div>
 
-                <!-- Kolom Output JS -->
                 <div class="flex-1 flex flex-col gap-4">
                     <label for="outputJs" class="text-lg font-semibold text-slate-200">2. Salin Hasil JavaScript</label>
                     <div class="relative flex-1">
@@ -65,57 +58,31 @@
             </main>
         </section>
 
-        <!-- Pemisah -->
         <div class="my-16 border-t-2 border-dashed border-slate-700"></div>
 
         <!-- Bagian Deobfuscator -->
         <section id="deobfuscator">
             <header class="text-center mb-8 md:mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold text-teal-400">Deobfuscator HTML</h1>
-                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-                    Kembalikan kode yang di-obfuscate menjadi HTML asli.
-                </p>
+                <h1 class="text-4xl md:text-5xl font-orbitron font-bold text-teal-400">HTML DEOBFUSCATOR</h1>
+                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">Kembalikan kode yang di-obfuscate dengan metode Singularity.</p>
             </header>
-
-            <!-- Deobfuscator Biasa -->
-            <main class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 mb-12">
-                <div class="flex-1 flex flex-col gap-4">
-                    <label for="inputJs" class="text-lg font-semibold text-slate-200">1. Masukkan Kode (Biasa)</label>
-                    <div class="relative flex-1">
-                        <textarea id="inputJs" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 font-mono text-sm focus:border-teal-500 focus:ring-2 focus:ring-teal-500/50 transition resize-none" placeholder='<script>...<\/script>' spellcheck="false"></textarea>
-                    </div>
-                </div>
-                <div class="flex-shrink-0 flex flex-col items-center justify-center gap-4">
-                     <button id="deobfuscateBtn" class="w-full md:w-48 h-12 px-6 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">Deobfuscate (Biasa)</button>
-                </div>
-                <div class="flex-1 flex flex-col gap-4">
-                    <label for="outputHtml" class="text-lg font-semibold text-slate-200">2. Hasil HTML (Biasa)</label>
-                    <div class="relative flex-1">
-                        <textarea id="outputHtml" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 resize-none" readonly placeholder="Hasil HTML akan muncul di sini..."></textarea>
-                        <button id="copyHtmlBtn" class="absolute top-3 right-3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-semibold py-1 px-3 rounded-md transition-all duration-200 text-sm">Salin</button>
-                    </div>
-                </div>
-            </main>
-            
-            <!-- Deobfuscator Kuat -->
              <main class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
                 <div class="flex-1 flex flex-col gap-4">
-                    <label for="inputJsHeavy" class="text-lg font-semibold text-slate-200">1. Masukkan Kode (Kuat)</label>
+                    <label for="inputJsHeavy" class="text-lg font-semibold text-slate-200">1. Masukkan Kode (Singularity)</label>
                     <div class="relative flex-1">
-                        <textarea id="inputJsHeavy" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-premium rounded-lg text-slate-300 font-mono text-sm focus-premium transition resize-none" placeholder='<script>...<\/script>' spellcheck="false"></textarea>
+                        <textarea id="inputJsHeavy" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-singularity rounded-lg text-slate-300 font-mono text-sm focus-singularity transition resize-none" placeholder='<script>...<\/script>' spellcheck="false"></textarea>
                     </div>
                 </div>
                 <div class="flex-shrink-0 flex flex-col items-center justify-center gap-4">
-                     <button id="deobfuscateHeavyBtn" class="group w-full md:w-48 h-12 px-6 btn-premium text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
-                        <span>Deobfuscate (Kuat)</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a5 5 0 00-5 5v3H4a2 2 0 00-2 2v5a2 2 0 002 2h12a2 2 0 002-2v-5a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm0 8h4V7a4 4 0 10-8 0v3h4V9zm-2 2v2a1 1 0 102 0v-2a1 1 0 10-2 0z" /></svg>
+                     <button id="deobfuscateHeavyBtn" class="group w-full md:w-56 h-16 px-6 btn-singularity text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
+                        <span class="font-orbitron text-lg">DEOBFUSCATE</span>
                      </button>
-                     <button id="clearAllBtn" class="w-full md:w-48 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">Bersihkan Semua</button>
+                     <button id="clearAllBtn" class="w-full md:w-56 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">Bersihkan Semua</button>
                 </div>
                 <div class="flex-1 flex flex-col gap-4">
-                    <label for="outputHtmlHeavy" class="text-lg font-semibold text-slate-200">2. Hasil HTML (Kuat)</label>
+                    <label for="outputHtmlHeavy" class="text-lg font-semibold text-slate-200">2. Hasil HTML</label>
                     <div class="relative flex-1">
-                        <textarea id="outputHtmlHeavy" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-premium rounded-lg text-slate-300 resize-none" readonly placeholder="Hasil HTML akan muncul di sini..."></textarea>
+                        <textarea id="outputHtmlHeavy" class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-singularity rounded-lg text-slate-300 resize-none" readonly placeholder="Hasil HTML akan muncul di sini..."></textarea>
                         <button id="copyHtmlHeavyBtn" class="absolute top-3 right-3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-semibold py-1 px-3 rounded-md transition-all duration-200 text-sm">Salin</button>
                     </div>
                 </div>
@@ -126,150 +93,149 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // === ELEMEN UMUM ===
-            const inputHtml = document.getElementById('inputHtml');
-            const outputJs = document.getElementById('outputJs');
-            const clearAllBtn = document.getElementById('clearAllBtn');
-            const clearObfuscatorBtn = document.getElementById('clearObfuscatorBtn');
-            
-            function setupCopyButton(button, textarea) {
-                // ... (Fungsi copy sama seperti sebelumnya, tidak perlu diubah)
+    document.addEventListener('DOMContentLoaded', () => {
+        const inputHtml = document.getElementById('inputHtml');
+        const outputJs = document.getElementById('outputJs');
+        const obfuscateHeavyBtn = document.getElementById('obfuscateHeavyBtn');
+        
+        const r = (n = 8) => [...Array(n)].map(() => Math.random().toString(36)[2]).join('');
+        const shuffle = (arr) => arr.map(v => ({ v, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ v }) => v);
+
+        obfuscateHeavyBtn.addEventListener('click', () => {
+            const originalHtml = inputHtml.value;
+            if (!originalHtml.trim()) { outputJs.value = 'Silakan masukkan kode HTML.'; return; }
+
+            // LAYER 1: Caesar Cipher Shift
+            const shift = Math.floor(Math.random() * 20) + 5;
+            let shiftedHtml = '';
+            for (let i = 0; i < originalHtml.length; i++) {
+                shiftedHtml += String.fromCharCode(originalHtml.charCodeAt(i) + shift);
             }
 
-            // === OBFUSCATOR BIASA ===
-            const obfuscateBtn = document.getElementById('obfuscateBtn');
-            obfuscateBtn.addEventListener('click', () => {
-                const originalHtml = inputHtml.value;
-                if (!originalHtml.trim()) { outputJs.value = 'Silakan masukkan kode HTML.'; return; }
-                const encodedHtml = btoa(unescape(encodeURIComponent(originalHtml)));
-                outputJs.value = `<script>\n//<![CDATA[\n(function(){\n    var e = "${encodedHtml}";\n    var d = decodeURIComponent(escape(atob(e)));\n    document.write(d);\n    document.close();\n})();\n//]]>\n<\/script>`;
-            });
+            // LAYER 2: XOR Encryption
+            const key = [...Array(16)].map(() => String.fromCharCode(Math.floor(Math.random() * 94) + 33)).join('');
+            let encrypted = '';
+            for (let i = 0; i < shiftedHtml.length; i++) {
+                encrypted += String.fromCharCode(shiftedHtml.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            
+            // LAYER 3: Base64
+            const base64Encoded = btoa(encrypted);
+            
+            // LAYER 4: Data Fragmentation & Logic Obfuscation
+            const dataChunks = [];
+            let remainingData = base64Encoded;
+            while(remainingData.length > 0) {
+                const chunkSize = Math.floor(Math.random() * 20) + 10;
+                dataChunks.push(remainingData.substring(0, chunkSize));
+                remainingData = remainingData.substring(chunkSize);
+            }
+            
+            const chunkOrder = shuffle([...Array(dataChunks.length).keys()]);
+            const shuffledChunks = chunkOrder.map(i => dataChunks[i]);
 
-            // === DEOBFUSCATOR BIASA ===
-            const inputJs = document.getElementById('inputJs');
-            const outputHtml = document.getElementById('outputHtml');
-            const deobfuscateBtn = document.getElementById('deobfuscateBtn');
-            deobfuscateBtn.addEventListener('click', () => {
-                const script = inputJs.value;
-                if (!script.trim()) { outputHtml.value = 'Silakan masukkan kode JavaScript.'; return; }
-                const match = script.match(/var e = "([^"]+)"/);
-                if (match && match[1]) {
-                    try {
-                        outputHtml.value = decodeURIComponent(escape(atob(match[1])));
-                    } catch (e) {
-                        outputHtml.value = `Gagal mendekode: ${e.message}`;
-                    }
-                } else {
-                    outputHtml.value = "Format skrip tidak dikenali.";
-                }
-            });
+            const blueprint = {
+                data: { chunks: shuffledChunks, order: chunkOrder },
+                key: key,
+                shift: shift
+            };
 
-            // === FUNGSI INTI OBFUSCATOR KUAT ===
-            const obfuscateHeavyBtn = document.getElementById('obfuscateHeavyBtn');
-            obfuscateHeavyBtn.addEventListener('click', () => {
-                const originalHtml = inputHtml.value;
-                if (!originalHtml.trim()) { outputJs.value = 'Silakan masukkan kode HTML.'; return; }
-
-                // 1. Generate random key
-                let key = '';
-                for (let i = 0; i < 16; i++) {
-                    key += String.fromCharCode(Math.floor(Math.random() * 94) + 33);
-                }
-
-                // 2. XOR encryption
-                let encryptedBytes = [];
-                for (let i = 0; i < originalHtml.length; i++) {
-                    encryptedBytes.push(originalHtml.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-                }
-
-                // 3. Convert to Base64
-                const finalEncodedHtml = btoa(String.fromCharCode.apply(null, encryptedBytes));
-
-                // 4. Generate polymorphic decoder script
-                const r = (n=8) => [...Array(n)].map(() => Math.random().toString(36)[2]).join('');
-                const varData = `_${r()}`;
-                const varKey = `_${r()}`;
-                const varFunc = `_${r()}`;
-                const varLoop = `_${r()}`;
-                const varOutput = `_${r()}`;
-                
-                const hiddenDoc = `["d","o","c","u","m","e","n","t"].join('')`;
-                const hiddenWrite = `["w","r","i","t","e"].join('')`;
-                const hiddenAtob = `window["a"+"t"+"o"+"b"]`;
-
-                let decoderScript = `
+            const blueprintStr = JSON.stringify(blueprint);
+            const finalPayload = btoa(unescape(encodeURIComponent(blueprintStr)));
+            
+            // LAYER 5: Dynamic JS Loader
+            const p = `_${r()}`; // Payload variable name
+            const c = `_${r()}`; // Config variable name
+            const w = `_${r(4)}`; // Window ref
+            const d = `_${r(4)}`; // Document ref
+            
+            // Hide keywords
+            const atobKey = r(5);
+            const jsonKey = r(5);
+            const docKey = r(5);
+            const writeKey = r(5);
+            
+            let decoder = `
 (function(){
-    var ${varData} = "${finalEncodedHtml}";
-    var ${varKey} = "${key}";
-    var ${varFunc} = function(${varLoop}, ${varOutput}) {
-        for (var i = 0; i < ${varLoop}.length; i++) {
-            ${varOutput} += String.fromCharCode(${varLoop}.charCodeAt(i) ^ ${varKey}.charCodeAt(i % ${varKey}.length));
-        }
-        return ${varOutput};
-    };
-    var decodedData = ${varFunc}(${hiddenAtob}(${varData}), '');
-    window[${hiddenDoc}][${hiddenWrite}](decodedData);
-})();`;
-                outputJs.value = `<script>${decoderScript.replace(/\s/g, "")}<\/script>`;
-            });
-
-
-            // === FUNGSI INTI DEOBFUSCATOR KUAT ===
-            const deobfuscateHeavyBtn = document.getElementById('deobfuscateHeavyBtn');
-            const inputJsHeavy = document.getElementById('inputJsHeavy');
-            const outputHtmlHeavy = document.getElementById('outputHtmlHeavy');
-            deobfuscateHeavyBtn.addEventListener('click', () => {
-                const script = inputJsHeavy.value;
-                if (!script.trim()) { outputHtmlHeavy.value = 'Silakan masukkan kode JavaScript (Kuat).'; return; }
-                
-                // Regex to find the two variables (data and key) regardless of their random names.
-                const dataRegex = /var ([a-zA-Z0-9$_]+)="([a-zA-Z0-9+/=]+)";/;
-                const keyRegex = /var ([a-zA-Z0-9$_]+)="([^"]+)";var/;
-
-                const dataMatch = script.match(dataRegex);
-                const keyMatch = script.match(keyRegex);
-
-                if (dataMatch && dataMatch[2] && keyMatch && keyMatch[2]) {
-                    const encodedData = dataMatch[2];
-                    const key = keyMatch[2];
-                    
-                    try {
-                        const encryptedBytes = atob(encodedData);
-                        let decryptedHtml = '';
-                        for (let i = 0; i < encryptedBytes.length; i++) {
-                            decryptedHtml += String.fromCharCode(encryptedBytes.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-                        }
-                        outputHtmlHeavy.value = decryptedHtml;
-                    } catch (e) {
-                         outputHtmlHeavy.value = `Gagal mendekode: ${e.message}. Pastikan ini adalah kode dari Obfuscator Kuat.`;
-                    }
-                } else {
-                     outputHtmlHeavy.value = "Format skrip kuat tidak dikenali. Tidak dapat menemukan data atau kunci.";
-                }
-            });
-
-
-            // === Tombol Bersihkan & Copy ===
-            clearObfuscatorBtn.addEventListener('click', () => {
-                inputHtml.value = '';
-                outputJs.value = '';
-            });
-
-             clearAllBtn.addEventListener('click', () => {
-                inputHtml.value = '';
-                outputJs.value = '';
-                inputJs.value = '';
-                outputHtml.value = '';
-                inputJsHeavy.value = '';
-                outputHtmlHeavy.value = '';
-            });
-
-            setupCopyButton(document.getElementById('copyJsBtn'), outputJs);
-            setupCopyButton(document.getElementById('copyHtmlBtn'), outputHtml);
-            setupCopyButton(document.getElementById('copyHtmlHeavyBtn'), outputHtmlHeavy);
+var ${p}="${finalPayload}";
+var ${w}=window;
+var _k={"${atobKey}":"atob","${jsonKey}":"JSON","${docKey}":"document","${writeKey}":"write"};
+var ${c}=${w}[_k["${jsonKey}"]].parse(decodeURIComponent(escape(${w}[_k["${atobKey}"]](${p}))));
+var _d="";
+for(var i=0;i<${c}.data.chunks.length;i++){_d+=(${c}.data.chunks[${c}.data.order.indexOf(i)])};
+var _x=w[_k["${atobKey}"]](_d);
+var _s="";
+for(var i=0;i<_x.length;i++){_s+=String.fromCharCode(_x.charCodeAt(i)^${c}.key.charCodeAt(i%${c}.key.length))};
+var _h="";
+for(var i=0;i<_s.length;i++){_h+=String.fromCharCode(_s.charCodeAt(i)-${c}.shift)};
+var ${d}=${w}[_k["${docKey}"]];
+${d}[_k["${writeKey}"]](_h);
+})();
+`;
+            outputJs.value = `<script>${decoder.replace(/\s/g, "")}<\/script>`;
         });
-    </script>
 
+        const deobfuscateHeavyBtn = document.getElementById('deobfuscateHeavyBtn');
+        const inputJsHeavy = document.getElementById('inputJsHeavy');
+        const outputHtmlHeavy = document.getElementById('outputHtmlHeavy');
+
+        deobfuscateHeavyBtn.addEventListener('click', () => {
+            const script = inputJsHeavy.value;
+            if (!script.trim()) { outputHtmlHeavy.value = 'Silakan masukkan kode JavaScript.'; return; }
+            
+            const payloadMatch = script.match(/var[a-zA-Z0-9$_]+="([a-zA-Z0-9+/=]+)"/);
+            if(!payloadMatch || !payloadMatch[1]){
+                outputHtmlHeavy.value = "Format skrip tidak dikenali. Payload tidak ditemukan.";
+                return;
+            }
+            
+            try {
+                const payload = payloadMatch[1];
+                const blueprintStr = decodeURIComponent(escape(atob(payload)));
+                const blueprint = JSON.parse(blueprintStr);
+
+                // Re-assemble data
+                let reassembledData = new Array(blueprint.data.chunks.length);
+                for(let i=0; i < blueprint.data.chunks.length; i++){
+                    reassembledData[blueprint.data.order[i]] = blueprint.data.chunks[i];
+                }
+                const base64Encoded = reassembledData.join('');
+
+                // Decrypt
+                const encrypted = atob(base64Encoded);
+                let shiftedHtml = '';
+                for (let i = 0; i < encrypted.length; i++) {
+                    shiftedHtml += String.fromCharCode(encrypted.charCodeAt(i) ^ blueprint.key.charCodeAt(i % blueprint.key.length));
+                }
+
+                let originalHtml = '';
+                for (let i = 0; i < shiftedHtml.length; i++) {
+                    originalHtml += String.fromCharCode(shiftedHtml.charCodeAt(i) - blueprint.shift);
+                }
+
+                outputHtmlHeavy.value = originalHtml;
+            } catch (e) {
+                outputHtmlHeavy.value = `Gagal mendekode: ${e.message}. Pastikan ini adalah kode dari Obfuscator Singularity.`;
+            }
+        });
+        
+        clearObfuscatorBtn.addEventListener('click', () => {
+            inputHtml.value = '';
+            outputJs.value = '';
+        });
+        clearAllBtn.addEventListener('click', () => {
+            inputHtml.value = '';
+            outputJs.value = '';
+            inputJsHeavy.value = '';
+            outputHtmlHeavy.value = '';
+        });
+        
+        // Setup copy buttons
+        const copyJsBtn = document.getElementById('copyJsBtn');
+        const copyHtmlHeavyBtn = document.getElementById('copyHtmlHeavyBtn');
+        copyJsBtn.addEventListener('click', () => { if(outputJs.value) navigator.clipboard.writeText(outputJs.value); });
+        copyHtmlHeavyBtn.addEventListener('click', () => { if(outputHtmlHeavy.value) navigator.clipboard.writeText(outputHtmlHeavy.value); });
+    });
+    </script>
 </body>
 </html>
