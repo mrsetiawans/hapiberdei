@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obfuscator & Deobfuscator HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter untuk tampilan yang bersih */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style tambahan untuk textarea agar terlihat lebih baik */
+        textarea {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        textarea::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+
+        <!-- Bagian Obfuscator -->
+        <section id="obfuscator">
+            <!-- Header Obfuscator -->
+            <header class="text-center mb-8 md:mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-cyan-400">Obfuscator HTML</h1>
+                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+                    Ubah kode HTML Anda menjadi JavaScript untuk menyembunyikan source code dari tampilan biasa.
+                </p>
+            </header>
+
+            <!-- Konten Utama Obfuscator -->
+            <main class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
+                <!-- Kolom Input HTML -->
+                <div class="flex-1 flex flex-col gap-4">
+                    <label for="inputHtml" class="text-lg font-semibold text-slate-200">1. Masukkan Kode HTML</label>
+                    <div class="relative flex-1">
+                        <textarea 
+                            id="inputHtml"
+                            class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition duration-300 resize-none"
+                            placeholder="<!DOCTYPE html>..."
+                            spellcheck="false"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Tombol Aksi Obfuscator -->
+                <div class="flex-shrink-0 flex flex-row lg:flex-col items-center justify-center gap-4">
+                     <button id="obfuscateBtn" class="group relative w-full md:w-auto lg:w-40 h-12 px-6 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
+                        <span>Obfuscate</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                     <button id="clearObfuscatorBtn" class="w-full md:w-auto lg:w-40 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+                        Bersihkan
+                    </button>
+                </div>
+
+                <!-- Kolom Output JS -->
+                <div class="flex-1 flex flex-col gap-4">
+                    <label for="outputJs" class="text-lg font-semibold text-slate-200">2. Salin Hasil JavaScript</label>
+                    <div class="relative flex-1">
+                        <textarea 
+                            id="outputJs"
+                            class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 font-mono text-sm resize-none"
+                            readonly
+                            placeholder="Hasil JavaScript akan muncul di sini..."></textarea>
+                        <button id="copyJsBtn" class="absolute top-3 right-3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-semibold py-1 px-3 rounded-md transition-all duration-200 text-sm">
+                            Salin
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Pemisah -->
+        <div class="my-16 border-t-2 border-dashed border-slate-700"></div>
+
+        <!-- Bagian Deobfuscator -->
+        <section id="deobfuscator">
+            <!-- Header Deobfuscator -->
+            <header class="text-center mb-8 md:mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-teal-400">Deobfuscator HTML</h1>
+                <p class="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+                    Kembalikan kode JavaScript yang di-obfuscate menjadi HTML asli.
+                </p>
+            </header>
+
+            <!-- Konten Utama Deobfuscator -->
+            <main class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
+                <!-- Kolom Input JS -->
+                <div class="flex-1 flex flex-col gap-4">
+                    <label for="inputJs" class="text-lg font-semibold text-slate-200">1. Masukkan Kode JavaScript</label>
+                    <div class="relative flex-1">
+                        <textarea 
+                            id="inputJs"
+                            class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 font-mono text-sm focus:border-teal-500 focus:ring-2 focus:ring-teal-500/50 transition duration-300 resize-none"
+                            placeholder='<script>...<\/script>'
+                            spellcheck="false"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Tombol Aksi Deobfuscator -->
+                 <div class="flex-shrink-0 flex flex-row lg:flex-col items-center justify-center gap-4">
+                     <button id="deobfuscateBtn" class="group relative w-full md:w-auto lg:w-40 h-12 px-6 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 flex items-center justify-center">
+                        <span>Deobfuscate</span>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2 transform group-hover:-rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                         </svg>
+                    </button>
+                     <button id="clearDeobfuscatorBtn" class="w-full md:w-auto lg:w-40 h-12 px-6 bg-slate-600 hover:bg-slate-700 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+                        Bersihkan
+                    </button>
+                </div>
+
+                <!-- Kolom Output HTML -->
+                <div class="flex-1 flex flex-col gap-4">
+                    <label for="outputHtml" class="text-lg font-semibold text-slate-200">2. Hasil HTML Asli</label>
+                    <div class="relative flex-1">
+                        <textarea 
+                            id="outputHtml"
+                            class="w-full h-96 min-h-[300px] p-4 bg-slate-800 border-2 border-slate-700 rounded-lg text-slate-300 resize-none"
+                            readonly
+                            placeholder="Hasil HTML akan muncul di sini..."></textarea>
+                        <button id="copyHtmlBtn" class="absolute top-3 right-3 bg-slate-700 hover:bg-slate-600 text-slate-300 font-semibold py-1 px-3 rounded-md transition-all duration-200 text-sm">
+                            Salin
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-slate-500">
+            <p>Dibuat ulang dengan HTML, JS, dan Tailwind CSS.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // === ELEMEN UMUM ===
+            function setupCopyButton(button, textarea) {
+                button.addEventListener('click', () => {
+                    if (!textarea.value || textarea.value.startsWith('Silakan') || textarea.value.startsWith('Terjadi')) {
+                        return; // Jangan salin pesan error/placeholder
+                    }
+                    navigator.clipboard.writeText(textarea.value).then(() => {
+                        const originalText = button.textContent;
+                        button.textContent = 'Disalin!';
+                        button.disabled = true;
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Gagal menyalin:', err);
+                        alert('Gagal menyalin ke clipboard.');
+                    });
+                });
+            }
+
+            // === BAGIAN OBFUSCATOR ===
+            const inputHtml = document.getElementById('inputHtml');
+            const outputJs = document.getElementById('outputJs');
+            const obfuscateBtn = document.getElementById('obfuscateBtn');
+            const copyJsBtn = document.getElementById('copyJsBtn');
+            const clearObfuscatorBtn = document.getElementById('clearObfuscatorBtn');
+            
+            function performObfuscation() {
+                const originalHtml = inputHtml.value;
+                if (!originalHtml.trim()) {
+                    outputJs.value = 'Silakan masukkan kode HTML terlebih dahulu.';
+                    return;
+                }
+                try {
+                    const encodedHtml = btoa(unescape(encodeURIComponent(originalHtml)));
+                    const outputScript = `<script>
+//<![CDATA[
+(function(){
+    var e = "${encodedHtml}";
+    var d = decodeURIComponent(escape(atob(e)));
+    document.write(d);
+    document.close();
+})();
+//]]>
+<\/script>`;
+                    outputJs.value = outputScript;
+                } catch (error) {
+                    console.error("Error during obfuscation:", error);
+                    outputJs.value = `Terjadi kesalahan saat obfuscasi: ${error.message}.`;
+                }
+            }
+            
+            obfuscateBtn.addEventListener('click', performObfuscation);
+            clearObfuscatorBtn.addEventListener('click', () => {
+                inputHtml.value = '';
+                outputJs.value = '';
+            });
+            setupCopyButton(copyJsBtn, outputJs);
+
+            // === BAGIAN DEOBFUSCATOR ===
+            const inputJs = document.getElementById('inputJs');
+            const outputHtml = document.getElementById('outputHtml');
+            const deobfuscateBtn = document.getElementById('deobfuscateBtn');
+            const copyHtmlBtn = document.getElementById('copyHtmlBtn');
+            const clearDeobfuscatorBtn = document.getElementById('clearDeobfuscatorBtn');
+
+            function performDeobfuscation() {
+                const obfuscatedScript = inputJs.value;
+                 if (!obfuscatedScript.trim()) {
+                    outputHtml.value = 'Silakan masukkan kode JavaScript yang di-obfuscate.';
+                    return;
+                }
+                
+                // Regex untuk mengekstrak string base64 dari dalam skrip
+                const regex = /var e = "([^"]+)"/;
+                const match = obfuscatedScript.match(regex);
+
+                if (match && match[1]) {
+                    const encodedHtml = match[1];
+                    try {
+                        const decodedHtml = decodeURIComponent(escape(atob(encodedHtml)));
+                        outputHtml.value = decodedHtml;
+                    } catch (error) {
+                         console.error("Error during deobfuscation:", error);
+                         outputHtml.value = `Gagal mendekode: ${error.message}. Pastikan input adalah skrip yang valid dari obfuscator ini.`;
+                    }
+                } else {
+                    outputHtml.value = "Format skrip tidak dikenali. Tidak dapat menemukan string base64.";
+                }
+            }
+
+            deobfuscateBtn.addEventListener('click', performDeobfuscation);
+            clearDeobfuscatorBtn.addEventListener('click', () => {
+                inputJs.value = '';
+                outputHtml.value = '';
+            });
+            setupCopyButton(copyHtmlBtn, outputHtml);
+        });
+    </script>
+
+</body>
+</html>
